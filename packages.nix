@@ -1,0 +1,61 @@
+{ pkgs, lib, ...}:
+{
+
+    imports = [
+        direnv/direnv.nix
+        ./git/git.nix
+    ];
+
+    home.packages = with pkgs; [
+        code-server
+        asciiquarium
+        bat
+        bottom
+        cachix
+        cmatrix
+        coreutils
+        coursier
+        cowsay
+        delta
+        dive
+        docker
+        docker-compose
+        doppler
+        duf
+        fd
+        figlet
+        fx
+        fzf
+        gh
+        glow
+        graalvm17-ce
+        graphviz
+        gum
+        heroku
+        htop
+        ipfetch
+        keychain
+        less
+        lolcat
+        mosh
+        ncdu
+        neofetch
+        neovim
+        ngrok
+        nix-direnv
+        nvd
+        ookla-speedtest
+        pulumi
+        ripgrep
+        ripgrep-all
+        scala-cli
+        sl
+        stow
+        tig
+        tree
+        unzip
+        zip
+        meld
+        zsh
+    ];
+}
