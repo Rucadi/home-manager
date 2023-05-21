@@ -57,5 +57,11 @@
         zip
         meld
         zsh
+        python3Full
+        steam
+        dolphin-emu
+        cemu
+        yuzu-early-access
+        xdg-utils
     ];
 }
