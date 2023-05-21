@@ -2,7 +2,7 @@
 My dotfiles while learning nix
 
 # My install command (I check user = rucadi, don't use this in your system)
-bash <(curl -L https://raw.githubusercontent.com/Rucadi/home-manager/master/nix_install.sh)
+bash <(curl -L https://raw.githubusercontent.com/Rucadi/home-manager/master/install.sh)
 
 # Install nix
 
