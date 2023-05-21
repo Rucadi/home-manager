@@ -27,7 +27,7 @@
       fx
       fzf
       gh
-      git
+      gitAndTools.gitFull
       glow
       graalvm17-ce
       graphviz
@@ -56,6 +56,7 @@
       tree
       unzip
       zip
+      meld
       zsh
     ];
 
@@ -74,6 +75,27 @@
   programs.direnv.nix-direnv.enable = true;
 
   programs.bash.enable = true;
+  programs.bash.bashrcExtra=''
+    [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+    [[ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]] && . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+  '';
   # OR
   programs.zsh.enable = true;
+
+  programs.git = {
+  enable = true;
+  package = pkgs.gitAndTools.gitFull;
+  lfs.enable = true;
+
+  userName  = "Rucadi";
+  userEmail = "ruben.cano96@gmail.com";
+
+  extraConfig = {
+    core.editor = "nano";
+    merge.tool = "${pkgs.meld}/bin/meld";
+    pull.ff = "only";
+    init.defaultBranch = "master";
+    gitlab.user = "Rucadi";
+  };
+};
 }
