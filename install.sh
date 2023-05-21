@@ -6,13 +6,16 @@ mkdir -p ~/.config/
 git clone https://github.com/Rucadi/home-manager ~/.config/home-manager
 git clone https://github.com/Rucadi/nix ~/.config/nix
 
+# Nix into shell
 [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
-[[ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]] && . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 
 nix-shell '<home-manager>' -A install
-home-manager switch
 
-rm -rf $temp_folder
+# Home-Manager into shell
+[[ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]] && . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+
+# Set Home-Manager (Will remove old .bashrc)
+home-manager switch -b backup
